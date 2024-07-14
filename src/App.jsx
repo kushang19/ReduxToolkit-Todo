@@ -4,13 +4,17 @@ import AddTodo from './components/AddTodo'
 import Todos from './components/Todos'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [editTodo, setEditTodo] = useState(null);
+
+  const clearEdit = () => {
+      setEditTodo(null);
+  };
 
   return (
     <>
-      <h1>Kushang !!</h1>
-      <AddTodo />
-      <Todos />
+      <h1>Powered by Redux Toolkit</h1>
+      <AddTodo editTodo={editTodo} clearEdit={clearEdit} />
+      <Todos setEditTodo={setEditTodo}  />
     </>
   )
 }
